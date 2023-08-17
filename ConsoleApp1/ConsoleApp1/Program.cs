@@ -4,11 +4,11 @@
     {
         static void Main(string[] args)
         {
-            var getCard = new GetCard();
+            var getCard = new GetCard(0.2m);
             getCard.CarrierName = "Bakcell";
             getCard.Number = "+994554242979";
             getCard.Balance = 10;
-            getCard.Tariff = 0.5m;
+            
 
             Console.WriteLine(getCard.CarrierName);
             Console.WriteLine(getCard.Number);  
@@ -32,10 +32,14 @@
 
     public class GetCard
     {
+        public GetCard(decimal tariff)
+        {
+            Tariff = tariff;    
+        }
         public string CarrierName { get; set; }
         public string Number { get; set; }
         public decimal Balance { get; set; }
-        public decimal Tariff { get; set; }
+        public decimal Tariff { get; private set; }
 
         public void IncreaseBalance(decimal amount)
         {
